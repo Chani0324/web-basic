@@ -1,0 +1,19 @@
+DOM[Document Object Model]
+
+- 주요 항목
+    html과 text들은 상속 관계로 브라우저에서 관리
+
+1. html과 xml 문서의 조작이 가능하게 하는 기술
+    - 동적 화면 구성
+
+2. html 조작
+    - 예시 : 이력서 자소서 등 작성시에 step별 작성 후 새로 화면이 생성.
+            input tag에 입력한 데이터가 다른 input tag로 출력.
+            이미지 위치가 변경 등...
+        html문서를 실시간 동적 변경
+
+3. DOM 지원 언어
+    - 모든 프로그램 언어가 지원
+
+4. HTML기반의 js 학습
+    - html 문서 조작용 js 기반의 DOM API 활용해서 학습

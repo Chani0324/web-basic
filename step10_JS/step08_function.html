@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>다양한 함수 문법</h3>
+    실습 방식 : console.log() 로만 확인
+
+    <script>
+        // step01 - 익명함수(이름이 없는 함수)
+        let f1 = function(){
+            console.log(1 + " 익명함수")
+        }
+
+        f1();
+
+        let f2 = function(v){
+            console.log(2 + " " + v + " 익명")
+        }
+
+        f2("아이");
+
+        // step02 - 즉시 실행 함수
+        // 구현 후 parameter 표현으로 호출
+        // 주의 사항 : 외부 소괄호 필수
+        (function f3() {
+            console.log(3 + " 즉시 실행 함수");
+        } ());
+        
+        (function f4(v1, v2) {
+            console.log(4 + " 즉시 실행 함수 " + (v1+v2));
+        } (10, 20));
+        
+        (function () {
+            console.log(5 + " 즉시 실행 함수");
+        } ());
+        
+        (function (v1, v2) {
+            console.log(6 + " 즉시 실행 함수 " + (v1+v2));
+        } (10, 20));
+
+        // step03 - *화살표 함수. return 로직이 있다고 보면 됨.
+        // =>
+        // 두개의 값을 받고 + 연산 후 반환
+        let v3 = (v1, v2) => v1+v2;
+        console.log(7, v3(10, 20));
+
+    </script>
+
+    <hr>
+
+    <button id="btn">콜백 함수 연습</button> <br>
+
+    콜백 함수란? 명시적인 호출이 아닌 특정 이벤트(client action)발생시 호출되는 함수 <br>
+    코드상에 개발자가 함수 등록을 해주어야 함.
+    <script>
+        let btn1 = document.getElementById("btn");
+        console.log(8, btn1);
+
+        btn1.addEventListener("click", function(){
+            alert("click");
+        });
+
+        // 5초 후에 이름 출력
+        // setTimeout(function(){
+        //     alert("playdata")
+        // }, 5000);
+
+        // setInterval() and clearInterval() 사용해서 로직 만들기
+        // file명 step09_myAry한글이름.html
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Total Review</h3>
+
+    <hr>
+
+    input tag에 입력된 데이터값들을 json객체로 생성 후 브라우저 session storage에 저장 <br>
+    getItem()으로 read한 후 json 데이터의 key로 value값 출력 <br><br>
+
+    <div>
+        이름 : <input type="text" id="name"> <br>
+        팀 : <input type="team" id="team"> <br>
+        <button id="insertData">입력</button>
+
+    </div>
+
+    <div>
+        <p id="val"></p>
+    </div>
+
+    <script>
+        let i = 0;
+        
+        document.getElementById("insertData").addEventListener("click", function () {
+            let j = i++
+            let getName = document.getElementById("name");
+            let getTeam = document.getElementById("team");
+            
+            if (!getName.value || !getTeam.value) {
+                alert('내용 입력 필수');
+            } else {
+
+                let myJson = { "name": getName.value, "team": getTeam.value};
+
+                // JSON.stringify : json을 string 타입으로
+                sessionStorage.setItem(`member${j}`, JSON.stringify(myJson));
+
+                // JSON.parse : string을 json 타입으로
+                document.getElementById("val").innerHTML = JSON.parse(sessionStorage.getItem(`member${j}`)).name
+                    + " / " + JSON.parse(sessionStorage.getItem(`member${j}`)).team;
+
+                getName.value = "";
+                getTeam.value = "";
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>

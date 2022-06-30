@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>이벤트 처리 응용</h3>
+
+    <hr>
+
+    <!-- 
+        select - list와 같은 tag 의미. 선택한 option은 value라는 속성값.
+    -->
+    <select name="cars" id="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+    </select>
+
+    <script>
+        // 실행된 event마다 기록을 남김
+        document.getElementById("cars").addEventListener("change", function(){
+            console.log(document.getElementById("cars").value);
+        });
+
+    </script>
+
+    <hr>
+    <h4>회원가입이라고 생각하고 id 중복 메세지 출력</h4>
+    <input type="text" id="id">
+        <label id="resultMsg"></label>
+
+    <script>
+        document.getElementById("id").addEventListener("blur", function(){
+            console.log(document.getElementById("id").value);
+
+            // 이미 존재하는 id인 경우 회원가입 불가
+            if(document.getElementById("id").value == "playdata") {
+                document.getElementById("resultMsg").innerText = "이미 존재하는 id입니다."
+            }else {
+                document.getElementById("resultMsg").innerText = '사용 가능한 id입니다.'
+            }
+        });
+
+    </script>
+
+    <hr>
+    <h4>학사 관리 프로그램 만들 때, db의 현 1학년 학생의 이름을 select tag로 처리하도록
+        서버에서 json 포멧으로 학생데이터 응답 되었다고 생각. <br>
+    </h4>
+
+    <select id="students">
+
+    </select>
+    <script>
+        const stus = [
+            {"name":"강백호", "grade":"1학년"},
+            {"name":"서태웅", "grade":"1학년"},
+            {"name":"채치수", "grade":"3학년"},
+            {"name":"정대만", "grade":"3학년"},
+            {"name":"송태섭", "grade":"2학년"}
+        ];
+
+        // select tag에는 학생명만 option tag로 적용    
+        var selectedOption = "";
+
+        for (i in stus) {
+            // selectedOption += "<option value='" + stus[i].name + "'>" + stus[i].name + "</option>";
+            selectedOption += `<option value=${stus[i].name}>${stus[i].name}</option>`;
+        }
+
+        document.getElementById("students").innerHTML = selectedOption;
+
+    </script>
+
+    <hr>
+    <h5>템플릿</h5>
+    - 문자열 표기법, 문자열 내부에 변수 사용한 문자열 <br>
+    - ${} : jsp에서도 EL(브라우저에 데이터 출력) <br>
+    - 기본 syntax : `(백틱) 표기 사용해서 문자열 표현 <br>
+
+    <script>
+        let data = `문자열
+        문자열2
+        문자열3`;
+
+        console.log(data);
+
+        const d1 = 'encore';
+        const d2 = 60;
+        const d3 = `${d1} 회사는 ${d2}년 정도 되었습니다.`;
+        console.log(d3);
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+     /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+
+</style>
+
+<body>
+    <img class="" src="https://w.namu.la/s/ee4f84e822a4bab78afccc1872a43c82cb26a0833e7105f6c9e6bce952769a65f6df47ef70f2c2545c5f8ac039d712ef7feb1b8679ccf97957c99dc4efe9c3f309de92eaf2d60582ec48bc51e17859af"
+        id="main">
+
+    <br>
+
+    <button onclick="myStop()">멈춰!</button>
+
+    <script>
+        const myInterval = setInterval(slideShowImg, 2000);
+        let myImg = document.getElementById("main");
+        let imgArray = ["https://w.namu.la/s/ee4f84e822a4bab78afccc1872a43c82cb26a0833e7105f6c9e6bce952769a65f6df47ef70f2c2545c5f8ac039d712ef7feb1b8679ccf97957c99dc4efe9c3f309de92eaf2d60582ec48bc51e17859af"
+         ,"https://t1.daumcdn.net/cfile/blog/120E67494D8D16D728"
+         ,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSizm_ZxWZ6CdrB6_W1nE7wNTln4GR9If2SwA&usqp=CAU"
+         ,"https://mblogthumb-phinf.pstatic.net/MjAxNzA5MDNfNCAg/MDAxNTA0NDA5NTc1MTEz.JdFKj8AcGnzGZ5gUdOqyWw90W89WIl5ixFm8QFrKhZMg.Z2kA3is_n4dy6kjryqvmggWmTW7QT3qfzHUYN2h92Gcg.JPEG.harold_icon/image_898162651504409520963.jpg?type=w800"
+        ,"https://w.namu.la/s/9ee1c8737f565c9612a1007d10322704abd329c34061eb55a048e99c49fdcabf34821d8ed0a317da09c02fc8170fa53d0dda8ef16d81ee8e1160f314d4a6050555aab29991074642ade115b000b4ff85"];
+        let imgIndex = 0;
+
+        function slideShowImg() {
+            myImg.setAttribute("src", imgArray[imgIndex]);
+            imgIndex++;
+            if (imgIndex >= imgArray.length){
+                imgIndex = 0;
+            }
+
+        }
+
+        function myStop() {
+            clearInterval(myInterval);
+        }
+
+    </script>
+
+</body>
+</html>

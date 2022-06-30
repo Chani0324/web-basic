@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    * {box-sizing: border-box}
+    body {font-family: Verdana, sans-serif; margin:0}
+    .mySlides {display: none}
+    img {vertical-align: middle;}
+    
+    /* Slideshow container */
+    /* 맨 앞에 . 표시는 class를 만들겠다는 의미임 */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+    
+    /* Next & previous buttons */
+    /* 이미지 파일 앞뒤로 이동 가능한 버튼 구성 */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: wheat;
+      font-weight: bold;
+      font-size: 25px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.5);
+    }
+    
+    /* Caption text */
+    .text {
+      color: whitesmoke;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 5px;
+    }
+    
+    /* The dots/bullets/indicators */
+    /* 이미지 이동 가능한 dot block */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+    
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="slideshow-container">
+
+    <!-- css 설정을 mySlides fade 두가지 적용하겠다는 의미-->
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 5</div>
+      <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" style="width:100%">
+      <div class="text">Caption One</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 5</div>
+      <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
+      <div class="text">Caption Two</div>
+    </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 5</div>
+      <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
+      <div class="text">Caption Three</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">4 / 5</div>
+        <img src="https://w.namu.la/s/ee4f84e822a4bab78afccc1872a43c82cb26a0833e7105f6c9e6bce952769a65f6df47ef70f2c2545c5f8ac039d712ef7feb1b8679ccf97957c99dc4efe9c3f3ec747ed0efdaf07d4921d4b5c0e06e3833806a24db279cb1b68c2a5ef19c64b9" style="width:30%">
+        <div class="text">Caption Four</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">5 / 5</div>
+        <img src="https://w.namu.la/s/55ef1aa096f942a954efaffa7e57ea0e254aaf6578586233c6ae146b5ca02e3878bb8aba73c564731630af473b1eb386ccc9ee7225fb3697e85f776f953dd6e5072752d6beda36a2baba4f1d9b541fc6a4020dd8043d7de0cedc3b3195085577" style="width:30%">
+        <div class="text">Caption Five</div>
+      </div>
+    
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+    
+    </div>
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+      <span class="dot" onclick="currentSlide(4)"></span> 
+      <span class="dot" onclick="currentSlide(5)"></span> 
+    </div>
+
+    <hr color="blue" size="5">
+
+    <div>
+        <p id="imgInfo"></p>
+    </div>
+
+    <script>
+        let imgInfos = [{"name":"img_snow_wide.jpg", "subject":"snowy mountain", "imgNum":1, "comment":"눈 덮힌 산"}
+                    , {"name":"img_nature_wide.jpg", "subject":"mountain of autumn", "imgNum":2, "comment":"가을의 산"}
+                    , {"name":"img_mountains_wide.jpg", "subject":"mountain road", "imgNum":3, "comment":"산에 있는 도로"}
+                    , {"name":"강백호", "subject":"농구만화", "imgNum":4, "comment":"강백호"}
+                    , {"name":"서태웅", "subject":"농구만화", "imgNum":5, "comment":"서태웅"}];
+        
+        let slideIndex = 1;
+        /* 슬라이드의 번호 */
+        showSlides(slideIndex);
+        
+        /* n의 값에 따른 showSlides 수정 */
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        /* 현재 slide 번호를 showSlides에서 받아옴 */
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            let i;
+
+            /*
+              id와 class의 속성
+              id - tag를 구분하기 위한 설정. page에 하나만 존재
+              class - tag에 UI css 설정을 속성으로 담음
+                    - tag들은 다르지만 공통된 UI 적용을 위해서 중복 가능.
+            */
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            let infos = document.getElementById("imgInfo");  
+
+            if (n > slides.length) {slideIndex = 1}    
+
+            if (n < 1) {slideIndex = slides.length}
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            infos.innerHTML = imgInfos[slideIndex-1].comment;
+
+        }
+    </script>
+    
+    </body>
+    </html> 

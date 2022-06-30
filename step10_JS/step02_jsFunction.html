@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>js 함수</h3>
+
+    1. 사용자 정의 함수 구현 <br>
+    2. js 내장 함수 <br>
+
+    <hr>
+
+    <script>
+        // 사용자 정의 함수
+        // parameter로 숫자 받아서 숫자 여부 확인 후에 값 출력
+        // 숫자가 아닌 경우 잘못 입력하셨습니다.
+
+        function myFunc01(v) {
+            // number 타입에 한해서만 type 출력
+            // typeof return값은 string 타입으로 반환.
+            if(typeof v == "number") {
+                console.log(v);
+            } else {
+                console.log("숫자가 아닙니다.")
+            }
+        }
+
+        // myFunc01();
+        // myFunc01(1);
+        // myFunc01('a');
+        // myFunc01("String");
+        // myFunc01(true);
+        // myFunc01(new Date());
+
+        // == 형태가 동일한 경우 true
+        // === 타입까지 비교할 경우 true
+        function myFunc02() {
+            console.log(1 == '1');
+            console.log(1 === '1');
+            console.log(typeof(1) + ' ' + typeof('1'));
+        }
+
+        // myFunc02();
+
+        // 함수 return
+        function myFunc03(v) {
+            return '연아' + v;
+        }
+
+        let data = myFunc03('김');
+        console.log(data);
+
+    </script>
+</body>
+</html>

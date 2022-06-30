@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Total Review</h3>
+
+    <hr>
+
+    input tag에 입력될 데이터값들을 json 객체로 생성 후 브라우저 session storage에 저장 <br>
+    getItem()으로 read 한 후에 json 데이터의 key로 value값 착출해서 출력 <br>
+
+
+    <div id="inputs">
+        <input type="text" id="ip1"  value="data1">
+        <input type="text" id="ip2"  value="data2">
+        <input type="text" id="ip3"  value="data3">
+    </div>
+   
+    <button class='btn'>이름</button>
+
+    <hr>
+    <a href="step12_missionMovePage.html">다음 page로 이동</a>
+
+    <script>
+        // 빈 객체 생성 문법
+        let obj1 = {};
+
+        /* childNodes;
+        - id="inputs" tag 하위의 모든 자식을 반환하는 속성
+        - node란?
+            element/attribute/text data 모두 node라고 함.
+            
+            tag의 하위 자식에는 new line도 text node로 자식으로 간주.
+        */
+        const inputs = document.getElementById('inputs').childNodes;
+
+        myFunc = () => {
+
+            inputs.forEach(v => {
+                console.log(v.id);
+                
+                if(v.id){   // undefined 필터링
+                    obj1[v.id] = v.value;
+
+                    // key와 value 쌍으로 매핑해서 객체에 저장
+                    console.log(v.id, obj1[v.id]);  // 객체에 별칭이 다른 경우 무조건 새로 추가
+                    sessionStorage.setItem(v.id, obj1[v.id]);   // key와 value 매핑 저장
+                }
+                
+            });
+            sessionStorage.setItem('jsonTest', JSON.stringify(obj1));
+        }
+
+        // html문서에서 class 속성이 btn인 모든 tag들 검색. 반환 list
+        const btn = document.querySelector('.btn');
+        btn.addEventListener('click', myFunc);  //이벤트 핸들러 등록
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>브라우저의 storage를 사용하는 기술</h3>
+
+    <hr>
+    <script>
+        const data = `playdata`;
+        // 브라우저 종료 시에도 잔존
+        localStorage.setItem("k1", "해방일지");
+        localStorage.setItem("k2", "다음");
+        
+        // 브라우저 종료 시 자동 삭제
+        sessionStorage.setItem("k1", "해방일지");
+        sessionStorage.setItem("k2", "소총");
+        sessionStorage.setItem("k3", JSON.stringify({"name":"강백호", "age":20}));
+
+        console.log(localStorage.getItem("k1"));
+        console.log(JSON.parse(sessionStorage.getItem("k3")).name);
+        
+        // k1의 local 저장값 삭제
+        localStorage.removeItem("k1");
+        console.log(localStorage.getItem("k1"));
+
+
+
+
+    </script>
+
+
+</body>
+</html>

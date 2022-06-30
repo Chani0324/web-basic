@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>w3schools 사이트 내용 선행 학습</h3>
+
+    <hr>
+
+    <div id="first"><button style="display:block; color:orange" id="firstBtn">first</button></div>
+
+    <!-- button 개발 후 클릭하면 first 버튼이 보였다가 안 보였다가 설정. -->
+    <div id="second">
+        <button onclick="btnChange()" id="secondBtn">display / none</button>
+
+    </div>
+
+    <script>
+        function btnChange(){
+            if (document.getElementById("firstBtn").style.display == "block") {
+                document.getElementById("firstBtn").style.display = "none";
+            }else {
+                document.getElementById("firstBtn").style.display = "block";
+            }
+        }
+
+    </script>
+
+    <hr color="red">
+
+    <h3>js 배열</h3>
+
+    <div id="demo"></div>
+
+    <script>
+        let array = [1, 2, 3];
+        console.log(typeof(array));
+        console.log(array);
+
+        console.log(array[0] + ' ' + array.length);
+        
+        array.push(100);
+        console.log(array + ' ' + array.length);
+
+
+        console.log("=== 배열 forEach ===");
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+        let text = "<ul>";
+        fruits.forEach(myFunction);
+        text += "</ul>";
+
+        function myFunction(value) {
+            text += "<li>" + value + "</li>";
+        }
+        
+        document.getElementById("demo").innerHTML = text;
+
+    </script>
+
+
+</body>
+</html>

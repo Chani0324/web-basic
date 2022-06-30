@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>js 변수 선언 및 호출</h3>
+    1. js의 코드는 html or js or jsp 파일에 개발 가능 <br>
+    2. script tag(element) 내부에 개발 <br>
+    3. js 개발시 주의 사항 : 브라우저에 개발자 tool 필수로 진행 <br>
+    4. 개발시 확인을 위해 console.log()함수 사용 <br>
+    
+    <script>
+        // script tag 내부에 표현되는 주석(java와 동일)
+        /* 변수 선언시 타입 없이 선언
+         타입 제한이 없음을 의미. 실제 타입이 정해지는 시점은 값 대입 시점.
+        */ 
+       // 변수 선언
+       var v1 = 1;  // number, string 등으로 자유 변환 가능
+       let v2 = 2;
+       const v3 = 3;    // 상수를 의미. 정해진 값 이외에는 수정 불가. 선언과 동시에 값 대입 필수.
+        
+        // 함수 개발해서 var와 let 차이점 비교
+        // let은 선언된 block 내에서만 사용 가능한 변수로 scope에 예민
+        function myFunc() {
+            
+            if(true) {
+                var v5 = "v5";
+                let v6 = "v6";  // if block 내에서만 사용 가능한 변수
+            }else {
+
+            }
+            console.log(v5);
+            // console.log(v6);
+        }
+
+        myFunc();
+
+        // var, let, const 키워드 없이도 변수 선언가능.
+        data = 'data';
+        console.log(data);
+
+        // parameter로 선언하는 변수는 변수명으로만 선언
+        function myFunc2(x, y) {
+            console.log(1 + ' ' + x);
+            console.log(2 + ' ' + y);
+            console.log('===========');
+        }
+
+        myFunc2();
+        myFunc2(1);
+        myFunc2(1, 2);
+        myFunc2(1, 2, 3);
+        
+
+
+    </script>
+
+</body>
+</html>
